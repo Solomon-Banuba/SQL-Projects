@@ -69,7 +69,6 @@ SELECT
 	order_date,
 	order_quantity,
 	store_id,
-
 FIRST_VALUE(order_date) OVER(partition by customer_id order by order_date) FO_date,
 FIRST_VALUE(store_id) OVER(partition by customer_id order by order_date) FO_store_id, 
 FIRST_VALUE(product_id) OVER(partition by customer_id order by order_date) FO_product, 
@@ -92,7 +91,9 @@ SELECT
 	DAYNAME(order_date) Day_name,
 	SUM(order_quantity) order_quantity
 FROM sales s
-GROUP BY Day_name, day_of_week;
+GROUP BY 
+	Day_name, 
+	day_of_week;
 
 
 ---------------------------------------------------------------------------------------------
@@ -104,7 +105,9 @@ SELECT
 	Monthname(order_date) name_of_month,
 	Sum(order_quantity) order_per_month
 FROM sales s
-GROUP BY month_number, name_of_month;
+GROUP BY 
+	month_number, 
+	name_of_month;
 
 ---------------------------------------------------------------------------------------------
 
@@ -114,7 +117,8 @@ SELECT
 	YEAR(order_date) AS order_year,
 	SUM(order_quantity) order_per_year
 FROM sales
-GROUP BY order_year;
+GROUP BY 
+	order_year;
 
 ---------------------------------------------------------------------------------------------
 
