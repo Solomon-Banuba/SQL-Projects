@@ -4,7 +4,7 @@
 
 ---------------------------------------------------------------------------------------------
 
-### -- #1: Finding the top-performing products and the states where the sales are coming from
+# 1: Finding the top-performing products and the states where the sales are coming from
 
 SELECT
 	product_name,
@@ -20,7 +20,7 @@ ORDER BY total_sales DESC LIMIT 10;
 
 ---------------------------------------------------------------------------------------------
 
-### --#2:  Which sales channel brings in the most sales
+# 2:  Which sales channel brings in the most sales
 
 SELECT
 	sale_channel,
@@ -31,7 +31,7 @@ GROUP BY sale_channel;
 
 ---------------------------------------------------------------------------------------------
 
-### -- #3: Pull a table of all customers with total orders of less than 300 units in the year 2020
+# -- 3: Pull a table of all customers with total orders of less than 300 units in the year 2020
 
 SELECT
 	c.id,
@@ -46,7 +46,7 @@ HAVING SUM(order_quantity) < 300;
 
 ---------------------------------------------------------------------------------------------
 
-### -- #4: Find the first orders and repeat order behavior of customers over time (Cohort analysis)
+# -- 4: Find the first orders and repeat order behavior of customers over time (Cohort analysis)
 
 SELECT
 	x.customer_id,
@@ -85,7 +85,7 @@ LEFT JOIN stores st1 ON x.FO_store_id = st1.id;
 
 ---------------------------------------------------------------------------------------------
 
-### -- #5: Print a table showing each day of the week and the respective order quantities.
+# -- 5: Print a table showing each day of the week and the respective order quantities.
 
 SELECT
 	DAYOFWEEK(order_date) day_of_week,
@@ -97,7 +97,7 @@ GROUP BY Day_name, day_of_week;
 
 ---------------------------------------------------------------------------------------------
 
-###-- #6: Calculate the total order quantities for each month
+# -- 6: Calculate the total order quantities for each month
 
 SELECT
 	Month(order_date) month_number,
@@ -108,7 +108,7 @@ GROUP BY month_number, name_of_month;
 
 ---------------------------------------------------------------------------------------------
 
-###-- #7: Analyse sales trends over time. Is there any growth in sales
+# --7: Analyse sales trends over time. Is there any growth in sales
 
 SELECT
 	YEAR(order_date) AS order_year,
